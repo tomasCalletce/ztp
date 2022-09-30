@@ -38,7 +38,7 @@ contract Project {
 
    function deposit() external payable returns (uint){
         require(open);
-        require(fundsInPool <= fundingGoal);
+        require(fundsInPool + msg.value <= fundingGoal);
         uint _lpTokenId = lpcounter;
         lpToken.mint(msg.sender,lpcounter,msg.value);
         lpcounter++;
